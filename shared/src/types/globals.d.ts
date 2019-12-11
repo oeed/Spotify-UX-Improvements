@@ -192,8 +192,17 @@ declare namespace Spicetify {
      * Adds a track/album or array of tracks/albums to prioritized queue.
      */
     function addToQueue(uri: string | string[]): Promise<void>;
-    const BridgeAPI: any;
-    const CosmosAPI: any;
+
+    namespace BridgeAPI {
+      export function cosmos(): any
+      export function cosmosJSON(e: any, t: any): any
+      export function request(e: any, t?: any, s?: any): any
+    }
+
+    namespace CosmosAPI {
+      export function cosmosRequest(e: any, t: any, o: any, r: any): any
+    }
+
     /**
      * Fetch interesting colors from track album art.
      * @param uri is optional. Leave it blank to get currrent track

@@ -1,12 +1,14 @@
+import { listenForInjectionRequests } from "shared/injection.helper"
+
 // spotify:app:collection-songs
 // spotify:app:album-page
 // spotify:app:collection:albums
 function fixLinks() {
   // TODO: make these instant on page load
-  document.querySelectorAll("a[href='spotify:app:collection-songs']").forEach(element => {
-    element.setAttribute("href", "spotify:app:album-page")
-    element.setAttribute("data-sidebar-list-item-uri", "spotify:app:album-page")
-  })
+  // document.querySelectorAll("a[href='spotify:app:collection-songs']").forEach(element => {
+  //   element.setAttribute("href", "spotify:app:album-page")
+  //   element.setAttribute("data-sidebar-list-item-uri", "spotify:app:album-page")
+  // })
 
   const main = document.getElementById("main")
   if (main) {
@@ -20,6 +22,8 @@ Spicetify.Player.addEventListener("appchange", function(event) {
 })
 
 window.addEventListener("load", () => {
+  console.log("load", event)
+
   fixLinks()
   setTimeout(fixLinks, 1000)
   setTimeout(fixLinks, 300)
@@ -27,6 +31,8 @@ window.addEventListener("load", () => {
 
 document.addEventListener("readystatechange", event => {
 })
+
+listenForInjectionRequests()
 
 
 // see:

@@ -1,12 +1,10 @@
-import { cosmosJSON } from "shared/spotify/bridge";
-
 enum RequestMethod {
   sub = "SUB"
 }
 
 export const request = <T>(method: RequestMethod, uri: string, body: object) => new Promise<T>((resolve, reject) => {
   console.log(method, uri, body);
-  cosmosJSON({
+  Spicetify.BridgeAPI.cosmosJSON({
     method,
     uri,
     body
