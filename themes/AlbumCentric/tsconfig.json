@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "../dist/",
+    "module": "es6",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "lib": ["dom", "es5", "es2015.promise", "es2017.object"],
+    "paths": {
+      "*": [
+        "src/*",
+        "../node_modules/*"
+      ],
+      "shared/*": [
+        "../shared/src/*",
+      ]
+    },
+    "typeRoots" : ["node_modules/@types", "src/types", "../../shared/src/types"],
+    "types": ["node"]
+  },
+  "include": [
+      "src/**/*", "../../shared/src/types/globals.d.ts"
+  ]
+}

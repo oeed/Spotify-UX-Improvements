@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "es6",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "*": [
+        "../src/*",
+        "../node_modules/*",
+        "../types*",
+      ],
+      "shared/*": [
+        "../../../shared/src/*",
+      ]
+    },
+    "typeRoots" : ["node_modules/@types", "src/types/declarations"],
+    "types": ["node"]
+  }
+}

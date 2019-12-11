@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "../dist/",
+    "module": "es6",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "lib": ["dom", "es5", "es2015.promise", "es2017.object"],
+    "paths": {
+      "*": [
+        "src/*",
+        "../node_modules/*"
+      ],
+      "shared/*": [
+        "../../shared/src/*",
+      ],
+      "pixel-shared/*": [
+        "../pixel-shared/src/*",
+      ]
+    },
+    "typeRoots" : ["node_modules/@types", "src/types"],
+    "types": ["node"]
+  },
+  "include": [
+      "src/**/*"
+  ]
+}

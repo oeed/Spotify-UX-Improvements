@@ -1,0 +1,99 @@
+@import "../../../shared/src/helpers.sass"
+  
+\:root
+  --album-size: 200px
+  --album-row-gap: 20px
+  --album-column-gap: 20px
+  --page-row-gap: 20px
+  --page-column-gap: 32px
+
+.ap-container
+  margin-top: var(--window-frame-top)
+  
+  .ap-artist-collection
+    h1
+      position: sticky
+      top: var(--window-frame-top)
+      background: var(--window-bar-colour)
+      padding: 18px var(--page-column-gap) 18px
+      border-bottom: 1px solid var(--secondary-splitter-colour)
+      margin: 0 9px
+      z-index: 100
+
+.ap-albums
+  position: relative
+  padding: var(--page-row-gap) var(--page-column-gap) 50px
+  width: 100%
+  display: grid
+  grid-row-gap: var(--album-row-gap)
+  grid-column-gap: var(--album-column-gap)
+  grid-template-columns: repeat(auto-fill, minmax(var(--album-size), 1fr))
+
+
+.ap-album
+  background-image: url("spotify:image:ab67616d00001e02f1ac4f358752b321586b3d78")
+  background-size: cover
+  background-position: center
+  width: 100%
+  padding-top: 100%
+  border-radius: 5px
+  overflow: hidden
+  box-shadow: var(--item-shadow)
+  transition: transform 0.17s $easing-cubic-out
+  cursor: pointer
+
+  &:hover
+    transform: scale(1.07)
+
+    .ap-album-info
+      opacity: 1
+
+  &:active
+    transform: scale(0.97)
+
+  &-info
+    position: absolute
+    bottom: 0
+    right: 0
+    border-top-left-radius: 10px
+    padding: 7px 9px
+    transition: 0.17s $easing-cubic-out
+    transition-property: background, color, opacity
+    color: #ffffffa3
+    -webkit-text-stroke-width: 0.5px
+    -webkit-text-stroke-color: #00000038
+    opacity: 0
+
+    &:hover
+      color: white
+      background: rgba(0,0,0,0.8)
+
+  &:nth-child(1)
+    background-image: url('spotify:image:ab67616d00001e0201b50e75c5aa46fb8ce0cd32')
+
+  &:nth-child(2)
+    background-image: url('spotify:image:ab67616d00001e02934de03df2cfb4cb0cddedf5')
+
+  &:nth-child(3)
+    background-image: url('spotify:image:ab67616d00001e024a1fd90fcfbc6fb0cd21637d')
+
+  &:nth-child(4)
+    background-image: url('spotify:image:ab67616d00001e0234733f87148c2fbe0176abdb')
+
+  &:nth-child(5)
+    background-image: url('spotify:image:ab67616d00001e0271e557eb2af8e08ec44bfc84')
+
+  &:nth-child(6)
+    background-image: url("spotify:image:ab67616d00001e02f1ac4f358752b321586b3d78")
+
+  &:nth-child(7)
+    background-image: url('spotify:image:ab67616d00001e027b2de7465ca9194416fcb653')
+
+  &:nth-child(8)
+    background-image: url('spotify:image:ab67616d00001e020365011d800890bd210dd043')
+
+  &:nth-child(9)
+    background-image: url('spotify:image:ab67616d00001e02b6afdcb8dfa71a2995969ea1')
+
+  &:nth-child(10)
+    background-image: url('spotify:image:ab67616d00001e02ca4ec4d8df39929fee25c4c3')

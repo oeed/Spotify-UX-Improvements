@@ -1,0 +1,14 @@
+$easing-cubic-out: cubic-bezier(0.215, 0.61, 0.355, 1)
+  
+=backdrop-blur
+  &:after
+    content: ""
+    display: block
+    position: absolute
+    left: 0
+    top: 0
+    width: 200%
+    height: 200%
+    backdrop-filter: blur(var(--blur-radius))
+    z-index: -1
+    pointer-events: none

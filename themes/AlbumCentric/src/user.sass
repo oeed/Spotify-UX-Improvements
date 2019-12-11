@@ -1,0 +1,75 @@
+@import "../../../shared/src/helpers.sass"
+
+\:root
+  --album-size: 200px
+  --album-row-gap: 20px
+  --album-column-gap: 20px
+  --window-frame-top: 48px
+  --window-bar-colour: rgba(255, 255, 255, 1)
+  --blur-radius: 10px
+  --window-splitter-colour: #00000014
+  --item-shadow: 0 2px 7px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.15)
+  --secondary-splitter-colour: #0000000a
+  --left-sidebar-colour: #f5f5f5
+
+/*Thinner scrollbar*/
+// ::-webkit-scrollbar
+//   height: 6px !important
+//   width: 0px !important
+//   background-color: transparent
+
+.gc-label-text
+  color: #fafafa
+
+.card-image-wrapper
+  height: 100%
+  position: relative
+  border-radius: 5px
+  overflow: hidden
+  box-shadow: var(--item-shadow)
+
+.card-info-subtitle-links
+  font-size: 13px
+  margin-top: -1px
+
+.content-top-bar
+  background: var(--window-bar-colour)
+  border-bottom: 1px solid var(--window-splitter-colour)
+  right: 0
+  padding-right: 16px
+  padding-left: 110px
+
+h1
+  color: var(--modspotify_main_fg)
+
+
+.sidebar
+  background: var(--left-sidebar-colour)
+  border-right: 1px solid var(--window-splitter-colour)
+  .sidebar-navbar, .LeftSidebar__scroll-section
+    background: none
+
+.LeftSidebarNewPlaylistButton__button
+  border-top: 1px solid var(--window-splitter-colour)
+
+#main
+  overflow-x: scroll
+
+  overscroll-behavior-x: contain
+  scroll-snap-type: x mandatory
+
+  &::-webkit-scrollbar
+    display: none
+
+  #main-container
+    // TODO: the 19px pixels seems to be coming from something dynamic
+    margin-right: calc(0px - var(--left-sidebar-width)) 
+
+  #menu-wrapper, .main-view-wrapper
+    scroll-snap-align: start
+    scroll-snap-stop: always
+
+
+#view-content > .embedded-app
+  &::-webkit-scrollbar-track:vertical
+    margin-top: var(--window-frame-top)
