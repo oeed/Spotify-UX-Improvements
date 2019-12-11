@@ -6,9 +6,50 @@
   --album-column-gap: 20px
   --page-row-gap: 20px
   --page-column-gap: 32px
+  --alphabet-scroller-width: 20px
 
-.ap-container
+.ap-alphabet-link
+  display: block
+  padding-top: var(--window-frame-top)
+  margin-top: calc(0px - var(--window-frame-top))
+
+.ap-alphabet-scroller
+  width: 20px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  position: fixed
+  top: var(--window-frame-top)
+  right: 0
+  bottom: 0
+  z-index: 100
+  text-align: center
+  box-sizing: border-box
+  padding-right: 4px
+
+  a
+    display: block
+    border-bottom: 0
+    border-radius: 5px
+    height: 16px
+    line-height: 16px
+    font-size: 11px
+
+    &:hover
+      background: #e2e2e2
+
+    &.active
+      background: #ececec
+  
+
+.ap-list-wrapper
   margin-top: var(--window-frame-top)
+  display: flex
+  padding-right: var(--alphabet-scroller-width)
+
+  .ap-list
+    flex: 1 0 auto
+  
   
   .ap-artist-collection
     h1

@@ -1,4 +1,5 @@
 import AlbumItem from "albums/album-item.component";
+import { alphabetScrollerAnchor } from "misc/alphabet-scroller.component";
 import React, { Component } from "react";
 import { ArtistAlbums } from "./album-list.component";
 
@@ -9,15 +10,19 @@ interface ArtistCollectionProps {
 export default class ArtistCollection extends Component<ArtistCollectionProps> {
 
   render() {
-    const { artistAlbums: { artist, albums } } = this.props
-    return (
-      <div className="ap-artist-collection">
+    const { artistAlbums: { artist, albums, needsAnchor } } = this.props
+    return <>
+      { needsAnchor &&
+        <a className="ap-alphabet-link" id={ alphabetScrollerAnchor(artist.name.substr(0, 1)) }/>
+      }
+
+      <div className="ap-artist-collection" >
         <h1>{ artist.name }</h1>
         <div className="ap-albums">
           { albums.map((album, i) => <AlbumItem key={ i } album={ album }/> )}
         </div>
       </div>
-    )
+    </>
   }
 
 }

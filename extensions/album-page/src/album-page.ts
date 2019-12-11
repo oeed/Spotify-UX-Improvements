@@ -16,10 +16,10 @@ function fixLinks() {
   }
 }
 
-Spicetify.Player.addEventListener("appchange", function(event) {
-  console.log(event)
-  fixLinks()
-})
+// Spicetify.Player.addEventListener("appchange", function(event) {
+//   console.log(event)
+//   fixLinks()
+// })
 
 window.addEventListener("load", () => {
   console.log("load", event)

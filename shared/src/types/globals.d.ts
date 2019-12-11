@@ -314,6 +314,15 @@ declare namespace Spicetify {
             index?: number;
             trackUri?: string;
             seekTo?: number;
+            context?: string // "spotify:album:1ScSaTZKeDI1YCAV0fCqWQ",
+            featureId?: string // "",
+            // page: null,
+            reason?: string // "playbtn",
+            referrerId?: string // "spotify:app:collection",
+            referrerVersion?: string // "1.1.21",
+            source?: string // "collection",
+            // uid?: null,
+            viewUri?: // "spotify:app:collection:albums"
         }
         /**
          * Request to play a context through the cosmos track resolver.
