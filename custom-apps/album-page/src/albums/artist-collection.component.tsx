@@ -1,7 +1,8 @@
 import AlbumItem from "albums/album-item.component";
 import { alphabetScrollerAnchor } from "misc/alphabet-scroller.component";
 import React, { Component } from "react";
-import { ArtistAlbums, getArtistCharacter } from "./album-list.component";
+import { ArtistAlbums } from "./album-list.component";
+import { getArtistCharacter } from "./album.helper";
 
 interface ArtistCollectionProps {
   artistAlbums: ArtistAlbums
