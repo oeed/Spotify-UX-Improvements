@@ -52,7 +52,7 @@
   
   
   .ap-artist-collection
-    h1
+    .ap-artist-header
       position: sticky
       top: var(--window-frame-top)
       background: var(--window-bar-colour)
@@ -60,6 +60,28 @@
       border-bottom: 1px solid var(--secondary-splitter-colour)
       margin: 0 9px
       z-index: 100
+      display: flex
+
+      h1
+        margin: 0
+
+      button
+        margin-left: 10px
+        border: none
+        cursor: pointer
+        color: var(--modspotify_secondary_fg)
+        margin-top: 1px
+        margin-bottom: -1px
+        outline: 0
+
+        &:hover
+          color: var(--modspotify_main_fg)
+
+        &:active
+          color: var(--modspotify_pressing_fg)
+
+        &:before
+          margin-right: 8px
 
 .ap-albums
   position: relative
