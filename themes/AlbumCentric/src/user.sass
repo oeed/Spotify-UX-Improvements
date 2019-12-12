@@ -5,18 +5,47 @@
   --album-row-gap: 20px
   --album-column-gap: 20px
   --window-frame-top: 48px
-  --window-bar-colour: rgba(255, 255, 255, 1)
-  --blur-radius: 10px
-  --window-splitter-colour: #00000014
-  --item-shadow: 0 2px 7px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.15)
-  --secondary-splitter-colour: #0000000a
-  --left-sidebar-colour: #f5f5f5
+  --window-splitter-colour: #ffffff1f
+  --item-shadow: none
+  --secondary-splitter-colour: #ffffff12
+  --left-sidebar-colour: #121212
+  --search-colour: #131313
+  --player-colour: #282828
+  
 
-/*Thinner scrollbar*/
+body.system-theme-light
+  --modspotify_main_fg: #444444
+  --modspotify_secondary_fg: #797979
+  --modspotify_main_bg: #FFFFFF
+  --modspotify_sidebar_and_player_bg: #FFFFFF
+  --modspotify_cover_overlay_and_shadow: #000000
+  --modspotify_indicator_fg_and_button_bg: #bdc3c7
+  --modspotify_pressing_fg: #2c3e50
+  --modspotify_slider_bg: #FAFAFA
+  --modspotify_sidebar_indicator_and_hover_button_bg: #95a5a6
+  --modspotify_scrollbar_fg_and_selected_row_bg: #EBEBEB
+  --modspotify_pressing_button_fg: #2c3e50
+  --modspotify_pressing_button_bg: #2c3e50
+  --modspotify_selected_button: #2c3e50
+  --modspotify_miscellaneous_bg: #2c3e50
+  --modspotify_miscellaneous_hover_bg: #efefef
+  --modspotify_preserve_1: #FFFFFF
+  --secondary-splitter-colour: #0000000a
+  --item-shadow: 0 2px 7px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.15)
+  --window-splitter-colour: #00000014
+  --left-sidebar-colour: #f5f5f5
+  --search-colour: #efefef
+  --player-colour: #EBEBEB
+
+    
+//  #/*Thinner scrollbar*/
 // ::-webkit-scrollbar
 //   height: 6px !important
 //   width: 0px !important
 //   background-color: transparent
+
+body
+  background: var(--modspotify_main_bg)
 
 .gc-label-text
   color: #fafafa
@@ -33,7 +62,7 @@
   margin-top: -1px
 
 .content-top-bar
-  background: var(--window-bar-colour)
+  background: var(--modspotify_main_bg)
   border-bottom: 1px solid var(--window-splitter-colour)
   right: 0
   padding-right: 16px
@@ -42,8 +71,14 @@
 h1
   color: var(--modspotify_main_fg)
 
+footer.view-player
+  background: var(--player-colour)
+  border-top: 1px solid var(--window-splitter-colour)
 
-.sidebar
+.view-player .text-container .text-item-container .text-item .scroll-text-container:after
+  background: linear-gradient(90deg,transparent,var(--player-colour))
+
+.sidebar#menu-wrapper
   background: var(--left-sidebar-colour)
   border-right: 1px solid var(--window-splitter-colour)
   .sidebar-navbar, .LeftSidebar__scroll-section
@@ -73,3 +108,24 @@ h1
 #view-content > .embedded-app
   &::-webkit-scrollbar-track:vertical
     margin-top: var(--window-frame-top)
+
+.Header__background, .glue-page-header__background
+  // remove the header gradient
+  display: none
+
+#view-content>.embedded-app, #view-content>iframe, #view-content
+  // set all pages to use the same background
+  background-color: var(--modspotify_main_bg)
+
+.profile, .browser-navigation-top-bar .button, .dropdown>button
+  text-shadow: none
+
+input[type=search], input[type=text]
+  background: var(--search-colour)
+  padding-left: 26px
+
+  &::placeholder, &::-webkit-input-placeholder
+    color: var(--modspotify_secondary_fg)
+
+.SearchInput
+  color: var(--modspotify_secondary_fg)

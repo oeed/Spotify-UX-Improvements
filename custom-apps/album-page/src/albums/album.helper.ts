@@ -9,6 +9,5 @@ export const removeArticles = (str: string) => {
 }
 
 export const getArtistCharacter = (artist: Artist) => {
-  console.log(artist.name, removeArticles(artist.name).substr(0, 1).toLowerCase())
   return removeArticles(artist.name).substr(0, 1).toLowerCase()
 }

@@ -12,17 +12,18 @@
     "baseUrl": "./",
     "lib": ["dom", "es5", "es2015.promise", "es2017.object"],
     "paths": {
+      "*": [
+        "src/*",
+        "../node_modules/*"
+      ],
       "shared/*": [
         "../../shared/src/*",
-      ],
-      "pixel-shared/*": [
-        "../pixel-shared/src/*",
       ]
     },
-    "typeRoots" : ["node_modules/@types", "src/types"],
+    "typeRoots" : ["node_modules/@types", "src/types", "../../shared/src/types"],
     "types": ["node"]
   },
   "include": [
-      "src/**/*"
+      "src/**/*", "../../shared/src/types/globals.d.ts", "../../shared/src/dark-mode.helper.ts"
   ]
 }

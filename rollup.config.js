@@ -6,7 +6,7 @@ import replace from "rollup-plugin-replace"
 import sass from 'rollup-plugin-scss'
 import typescript from "rollup-plugin-typescript"
 
-export default ["custom-apps/album-page", "extensions/album-page", "themes/AlbumCentric"].map((entry, i) => ({
+export default ["custom-apps/album-page", "extensions/album-page", "extensions/dark-mode", "themes/AlbumCentric"].map((entry, i) => ({
   input: `${ entry }/src/${ path.basename(entry) }.ts`,
   output: {
     file: entry.indexOf("extensions") == -1 ? `dist/${ entry }/${ path.basename(entry) }.js` : `dist/${ entry }.js`,
@@ -40,7 +40,7 @@ export default ["custom-apps/album-page", "extensions/album-page", "themes/Album
       baseUrl: `./${ entry }`,
       tsconfig: `${ entry }/tsconfig.json`
     }),
-    sass({
+    entry.indexOf("extensions") == -1 && sass({
       indentedSyntax: true,
       output: entry.indexOf("themes") == -1 ? `dist/${ entry }/style.css` : `dist/${ entry }/user.css`
     })
