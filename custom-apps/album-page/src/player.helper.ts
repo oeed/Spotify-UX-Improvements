@@ -1,12 +1,13 @@
-import { Album } from "data.helper";
+import { Album } from "shared/data.helper";
 
 export const playAlbum = (album: Album) => {
+  // Spicetify.Player.setShuffle(false)
   Spicetify.PlaybackControl.playFromResolver(album.link, {
     context: album.link,
     reason: "playbtn",
   }, function(){
     // TODO: there's probably an error related thing passed there
-    console.log()})
+  })
 }
 
 export const queueAlbum = (album: Album) => {

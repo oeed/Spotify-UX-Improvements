@@ -1,6 +1,6 @@
-import { Album } from "data.helper";
 import { playAlbum, queueAlbum } from "player.helper";
 import React, { Component, MouseEvent } from "react";
+import { Album } from "shared/data.helper";
 
 interface AlbumItemProps { 
   album: Album

@@ -1,7 +1,9 @@
 import ArtistCollection from "albums/artist-collection.component";
-import { Album, Artist, getAlbums } from "data.helper";
 import AlphabetScroller from "misc/alphabet-scroller.component";
 import React, { Component } from "react";
+import { Album, Artist, getAlbums } from "shared/data.helper";
+import { getArtistCharacter, removeArticles } from "./album.helper";
+
 
 export interface ArtistAlbums {
   artist: Artist
@@ -20,13 +22,12 @@ export default class AlbumList extends Component<{}, AlbumListState> {
 
   componentDidMount() {
     getAlbums().then(albums => {
-      console.log(albums)
       const artistsAlbums = new Map<string, ArtistAlbums>()
       const scrollerCharacters = new Set<string>()
       for (const album of albums) {
         let artistAlbums = artistsAlbums.get(album.artist.link)
         if (!artistAlbums) {
-          const artistCharacter = album.artist.name.substr(0, 1).toLowerCase()
+          const artistCharacter = getArtistCharacter(album.artist)
           artistsAlbums.set(album.artist.link, {
             artist: album.artist,
             albums: [album],
@@ -43,7 +44,7 @@ export default class AlbumList extends Component<{}, AlbumListState> {
         artistAlbums.albums.sort((a, b) => a.year - b.year)
       }
       
-      const albumsArray = Array.from(artistsAlbums.values()).sort((a, b) => a.artist.name.localeCompare(b.artist.name))
+      const albumsArray = Array.from(artistsAlbums.values()).sort((a, b) => removeArticles(a.artist.name).localeCompare(removeArticles(b.artist.name)))
       this.setState({ artistsAlbums: albumsArray, scrollerCharacters })
     })
   }

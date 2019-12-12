@@ -27,6 +27,6 @@
     "types": ["node"]
   },
   "include": [
-      "src/**/*", "../../shared/src/types/globals.d.ts"
+      "src/**/*", "../../shared/src/types/globals.d.ts", "../../shared/src/data.helper.ts"
   ]
 }

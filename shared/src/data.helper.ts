@@ -64,7 +64,37 @@ export interface Album {
   year: number
 }
 
+interface Track {}
+
 export const getAlbums = async () => {
   const response = await request<{ items: Album[] }>(RequestMethod.sub, "sp://core-collection/unstable/@/list/albums/all?decorate=true&filter=&sort=artist.name", {"policy":{"link":true,"collectionLink":true,"name":true,"artist":true,"covers":true}})
   return response.items
 }
+
+export type URILike<T extends { link: string } = { link: string }> = T | string
+
+export const getURI = (value: URILike) => typeof value === "string" ? value : value.link
+
+export const getAlbumTracks = async (album: URILike<Album>) => new Promise<string[]>((resolve, reject) => {
+  Spicetify.BridgeAPI.request("album_tracks_snapshot", [getURI(album), 0, -1], (function(err: Error | undefined, data: { array: string[] }) {
+    if (err) {
+      reject(err)
+    }
+    else {
+      resolve(data.array)
+    }
+  }))
+})
+
+export const getTrackMetadata = async (uri: string) => new Promise<Track>((resolve, reject) => {
+  Spicetify.BridgeAPI.request("track_metadata", [uri], (function(err: Error | undefined, data: { array: string[] }) {
+    if (err) {
+      reject(err)
+    }
+    else {
+      resolve(data)
+    }
+  }))
+})
+
+export const isLiked = async (item: URILike) => new Promise<boolean>(resolve => Spicetify.LiveAPI(getURI(item)).get("added", (err: any, res: boolean) => resolve(res)))

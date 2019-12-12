@@ -72,7 +72,6 @@
 
 
 .ap-album
-  background-image: url("spotify:image:ab67616d00001e02f1ac4f358752b321586b3d78")
   background-size: cover
   background-position: center
   width: 100%
@@ -82,6 +81,19 @@
   box-shadow: var(--item-shadow)
   transition: transform 0.17s $easing-cubic-out
   cursor: pointer
+
+  &.ap-album-random
+    position: relative
+    &:before
+      position: absolute
+      top: 50%
+      left: 0
+      right: 0
+      text-align: center
+      /* line-height: 100% */
+      transform: translateY(-50%)
+      height: 64px
+      line-height: 64px
 
   &:hover
     transform: scale(1.07)
@@ -108,33 +120,3 @@
     &:hover
       color: white
       background: rgba(0,0,0,0.8)
-
-  &:nth-child(1)
-    background-image: url('spotify:image:ab67616d00001e0201b50e75c5aa46fb8ce0cd32')
-
-  &:nth-child(2)
-    background-image: url('spotify:image:ab67616d00001e02934de03df2cfb4cb0cddedf5')
-
-  &:nth-child(3)
-    background-image: url('spotify:image:ab67616d00001e024a1fd90fcfbc6fb0cd21637d')
-
-  &:nth-child(4)
-    background-image: url('spotify:image:ab67616d00001e0234733f87148c2fbe0176abdb')
-
-  &:nth-child(5)
-    background-image: url('spotify:image:ab67616d00001e0271e557eb2af8e08ec44bfc84')
-
-  &:nth-child(6)
-    background-image: url("spotify:image:ab67616d00001e02f1ac4f358752b321586b3d78")
-
-  &:nth-child(7)
-    background-image: url('spotify:image:ab67616d00001e027b2de7465ca9194416fcb653')
-
-  &:nth-child(8)
-    background-image: url('spotify:image:ab67616d00001e020365011d800890bd210dd043')
-
-  &:nth-child(9)
-    background-image: url('spotify:image:ab67616d00001e02b6afdcb8dfa71a2995969ea1')
-
-  &:nth-child(10)
-    background-image: url('spotify:image:ab67616d00001e02ca4ec4d8df39929fee25c4c3')
