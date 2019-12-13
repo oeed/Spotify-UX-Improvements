@@ -3,3 +3,6 @@ built-in apps
 dist
 .env
 .DS_Store
+DarkModeSocket
+DarkModeSocket-in.log
+DarkModeSocket-out.log

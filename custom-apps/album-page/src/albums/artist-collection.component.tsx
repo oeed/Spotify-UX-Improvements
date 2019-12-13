@@ -21,7 +21,7 @@ export default class ArtistCollection extends Component<ArtistCollectionProps> {
 
       <div className="ap-artist-collection">
         <div className="ap-artist-header">
-          <h1>{ artist.name }</h1>
+          <a href={ artist.link }><h1>{ artist.name }</h1></a>
           <button className="spoticon-shuffle-16" onClick={ this.onRandomAlbumClick }/>
         </div>
         <div className="ap-albums">

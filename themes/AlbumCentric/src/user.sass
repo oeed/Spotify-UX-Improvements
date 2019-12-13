@@ -35,7 +35,7 @@ body.system-theme-light
   --window-splitter-colour: #00000014
   --left-sidebar-colour: #f5f5f5
   --search-colour: #efefef
-  --player-colour: #EBEBEB
+  --player-colour: #eeeeee
 
     
 //  #/*Thinner scrollbar*/
@@ -53,6 +53,8 @@ body
 .card-image-wrapper
   height: 100%
   position: relative
+
+.Header__image-inner, .card-image-wrapper
   border-radius: 5px
   overflow: hidden
   box-shadow: var(--item-shadow)
@@ -113,6 +115,9 @@ footer.view-player
   // remove the header gradient
   display: none
 
+.Header--with-active-sticky-header .Header__background
+  display: initial
+
 #view-content>.embedded-app, #view-content>iframe, #view-content
   // set all pages to use the same background
   background-color: var(--modspotify_main_bg)
@@ -129,3 +134,6 @@ input[type=search], input[type=text]
 
 .SearchInput
   color: var(--modspotify_secondary_fg)
+
+.Button--style-icon-stroke
+  background: var(--modspotify_indicator_fg_and_button_bg)
