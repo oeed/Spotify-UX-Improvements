@@ -35,7 +35,7 @@ body.system-theme-light
   --window-splitter-colour: #00000014
   --left-sidebar-colour: #f5f5f5
   --search-colour: #efefef
-  --player-colour: #eeeeee
+  --player-colour: #fafafa
 
     
 //  #/*Thinner scrollbar*/
@@ -115,8 +115,9 @@ footer.view-player
   // remove the header gradient
   display: none
 
-.Header--with-active-sticky-header .Header__background
+.Header--with-active-sticky-header .Header__background, .glue-page-header--with-active-sticky-header .glue-page-header__background
   display: initial
+  border-bottom-color: var(--secondary-splitter-colour)
 
 #view-content>.embedded-app, #view-content>iframe, #view-content
   // set all pages to use the same background
