@@ -4,6 +4,7 @@ export enum SystemTheme {
 }
 
 const THEME_QUERY = "theme-query"
+let hasInitialised = false
 let currentTheme = SystemTheme.light
 
 export const getCurrentTheme = () => currentTheme
@@ -16,6 +17,15 @@ export const updateSystemThemeClass = (theme: SystemTheme, theBody: HTMLElement 
   else {
     theBody.classList.remove("system-theme-dark")
     theBody.classList.add("system-theme-light")
+  }
+}
+
+const updateTheme = (newTheme: SystemTheme, onChange: (theme: SystemTheme) => void) => {
+  if (!hasInitialised || currentTheme !== newTheme) {
+    hasInitialised = true
+    currentTheme = newTheme
+    console.log("Changing theme to", newTheme)
+    onChange(newTheme)
   }
 }
 
@@ -36,15 +46,8 @@ export const monitorDarkMode = (onChange: (theme: SystemTheme) => void) => {
   })
 
   socket.addEventListener('message', event => {
-    if (event.data === SystemTheme.dark) {
-      currentTheme = SystemTheme.dark
-      console.log("Changing theme to", event.data)
-      onChange(SystemTheme.dark)
-    }
-    else if (event.data === SystemTheme.light) {
-      currentTheme = SystemTheme.light
-      console.log("Changing theme to", event.data)
-      onChange(SystemTheme.light)
+    if (event.data === SystemTheme.dark || event.data === SystemTheme.light) {
+      updateTheme(event.data as SystemTheme, onChange)
     }
   });
 }

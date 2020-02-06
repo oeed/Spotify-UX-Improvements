@@ -26,7 +26,6 @@ export const listenForInjectionRequests = () => window.addEventListener("message
 
 export const listenForSystemThemeChanges = () => {
   window.addEventListener("message", event => {
-    console.log(" listen messag", event)
     if (event.data === SET_DARK_MODE) {
       document.body.classList.remove("system-theme-light")
       document.body.classList.add("system-theme-dark")
@@ -49,7 +48,6 @@ export const broadcastSystemThemeChange = (theme: SystemTheme) => {
 }
 
 export const onNewFrameLoad = (handler: (window: Window) => void) => window.addEventListener("message", event => {
-  console.log(event.data)
   if (typeof event.data === "object" && "type" in event.data && event.data.type === "notify_ready") {
     console.log("Frame loaded", event.source)
     handler(event.source as Window)
